@@ -1,3 +1,3 @@
 # Recycling-Project
 
-This project is made to help utah residents know whether something is recycleable or not.
+This project is made to help utah county residents know whether a plastic type is recycleable or not in their city.
