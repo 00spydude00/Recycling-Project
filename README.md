@@ -1,6 +1,6 @@
 # Recycling-Project
 
-This project is (going to be) a webtool based on FastAPI, Python, and HTML that accesses a json file containing information about each city's recyclables.
+This project is (going to be) a webtool based on Flask, Python, and HTML that accesses a json file containing information about each city's recyclables.
 
 I am making this project primarily because it is an absolute pain in the ass to know what is recyclable in your city. Just getting the information for this project was very difficult.
 Cities frequently have websites with very limited or vague information about what is recyclable. For example, in a perfect world, the orem city official page for recycling in the city would include that they can recycle any of the 7 resin types, but the site only has a long and overwhelming list of every possible material someone might want to recycle.
