@@ -16,7 +16,7 @@ def show_homepage():
 
     if request.method == "POST":
         city = request.form["city"].strip().title()
-        rules=recycling_data[city]
+        rules=recycling_data.get(city)
     return render_template(
         "index.html",
         city=city,
