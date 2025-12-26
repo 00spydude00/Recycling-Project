@@ -11,7 +11,13 @@ with open(DATA_PATH) as f:
 
 @app.route("/", methods=["GET"])
 def show_homepage():
-    return render_template("index.html")
+    city="Provo"
+    rules=recycling_data[city]
+    return render_template(
+        "index.html",
+        city=city,
+        rules=rules
+    )
 # city_input = input("Which city? (Utah county only)").title()
 
 # if city_input not in recycling_data:

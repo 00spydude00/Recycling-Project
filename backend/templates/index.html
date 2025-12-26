@@ -1,1 +1,22 @@
-<p>sup</p>
+<!doctype html>
+<html>
+	<head>
+		<title>Utah County Recycling</title>
+	</head>
+	<body>
+		<h1>Recycling Rules for {{ city }}</h1>
+		<ol>
+			{% for plastic, value in rules.items() %}
+			<li>
+				{% if value == 1 %}
+				 Yes
+				{% else %}
+				 No
+				{% endif %}
+			</li>
+			{% endfor %}
+		</ol>
+
+	</body>
+</html>
+
