@@ -4,19 +4,32 @@
 		<title>Utah County Recycling</title>
 	</head>
 	<body>
-		<h1>Recycling Rules for {{ city }}</h1>
-		<ol>
-			{% for plastic, value in rules.items() %}
-			<li>
-				{% if value == 1 %}
-				 Yes
-				{% else %}
-				 No
-				{% endif %}
-			</li>
-			{% endfor %}
-		</ol>
-
+		<form method="POST">
+			<label>
+				City:
+				<input type="text" name="city" required>
+			</label>
+			<button type="submit">Check for recyclability</button>
+		</form>
+		{% if city %}
+			<h1>Recycling Rules for {{ city }}</h1>
+			{% if rules %}
+				<ol>
+					{% for plastic, value in rules.items() %}
+					<li>
+						{% if value == 1 %}
+						 Yes
+						{% else %}
+						 No
+						{% endif %}
+					</li>
+					{% endfor %}
+				</ol>
+			{% else %}
+				<p><strong>City not found.</strong><p>
+				<p>please be sure that this is a city in utah county</p>
+			{% endif %}
+		{% endif %}
 	</body>
 </html>
 
