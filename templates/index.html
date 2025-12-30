@@ -14,17 +14,32 @@
 		{% if city %}
 			<h1>Recycling Rules for {{ city }}</h1>
 			{% if rules %}
-				<ol>
-					{% for plastic, value in rules.items() %}
-					<li>
-						{% if value == 1 %}
-						 Yes
-						{% else %}
-						 No
-						{% endif %}
-					</li>
-					{% endfor %}
-				</ol>
+				{% for plastic, value in rules.items() %}
+				<p>
+					{% if plastic == "1" %}
+					 1. PETE/PET: This plastic is most commonly used in plastic water and soda bottles, as well as most plastic food containers. This is likely what first comes to mind when you think of "plastic", and is the most likely of any type to be recyclable.
+					{% elif plastic == "2" %}
+					 2. HDPE: For consumers, this plastic is most commonly in the form of milk jugs, detergent bottles, and shampoo bottles. It is also widely accepted to be recycled.
+					{% elif plastic == "3" %}
+					 3. PVC/V: This plastic is found most commonly in PVC pipe, cooking oil bottles, vinyl flooring, and blister packs. It is rarely accepted for recycling.
+					{% elif plastic == "4" %}
+					 4. LDPE: This plastic is most commonly used in plastic bags, shrink wrap, and some squeezeable bottles. It is sometimes recyclable curbside, but most often can be dropped off at stores that use said plastic bags.
+					{% elif plastic == "5" %}
+					 5. PP: Yogurt cups, takeout containers, some bottle caps. This type is getting increasingly accepted for recycling municipially, but still varies by location.
+					{% elif plastic == "6" %}
+					 6. PS: Styrofoam cups, meat trays, and packing peanuts. It is lightweight and bulky, so the bang for buck as a city is very low. Rarely accepted, often landfilled. 
+					{% elif plastic == "7" %}
+					 7. Other: As a catch-all category, it makes these plastics hard to identify and process. If it is accepted in your city, you are very lucky.
+					{% else %}
+					 
+					 Additional information: {{ value }}
+					{% endif %}
+					{% if value == 1 %}
+					 <strong>This plastic is recyclable in your city.</strong></p>
+					{% else %}
+					 <strong>This plastic is NOT recyclable in your city.</strong></p>
+					{% endif %}
+				{% endfor %}
 			{% else %}
 				<p><strong>City not found.</strong><p>
 				<p>please be sure that this is a city in utah county</p>
