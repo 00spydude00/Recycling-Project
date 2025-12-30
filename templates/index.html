@@ -14,6 +14,7 @@
 		{% if city %}
 			<h1>Recycling Rules for {{ city }}</h1>
 			{% if rules %}
+				<p>These are the numbers you'll find on the inside of a recycling symbol on plastic items.</p>
 				{% for plastic, value in rules.items() %}
 				<p>
 					{% if plastic == "1" %}
@@ -45,7 +46,6 @@
 				<p>please be sure that this is a city in utah county</p>
 			{% endif %}
 		{% endif %}
-		<p>These are the numbers you'll find on the inside of a recycling symbol on plastic items.</p>
 	</body>
 </html>
 
