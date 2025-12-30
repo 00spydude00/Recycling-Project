@@ -1,51 +1,146 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Utah County Recycling</title>
-	</head>
-	<body>
-		<form method="POST">
-			<label>
-				City:
-				<input type="text" name="city" required>
-			</label>
-			<button type="submit">Check for recyclability</button>
-		</form>
-		{% if city %}
-			<h1>Recycling Rules for {{ city }}</h1>
-			{% if rules %}
-				<p>These are the numbers you'll find on the inside of a recycling symbol on plastic items.</p>
-				{% for plastic, value in rules.items() %}
-				<p>
-					{% if plastic == "1" %}
-					1. PETE/PET: This plastic is most commonly used in plastic water and soda bottles, as well as most plastic food containers. This is likely what first comes to mind when you think of "plastic", and is the most likely of any type to be recyclable.<br>
-					{% elif plastic == "2" %}
-					2. HDPE: For consumers, this plastic is most commonly in the form of milk jugs, detergent bottles, and shampoo bottles. It is also widely accepted to be recycled.<br>
-					{% elif plastic == "3" %}
-					3. PVC/V: This plastic is found most commonly in PVC pipe, cooking oil bottles, vinyl flooring, and blister packs. It is rarely accepted for recycling.<br>
-					{% elif plastic == "4" %}
-					4. LDPE: This plastic is most commonly used in plastic bags, shrink wrap, and some squeezeable bottles. It is sometimes recyclable curbside, but most often can be dropped off at stores that use said plastic bags.<br>
-					{% elif plastic == "5" %}
-					5. PP: Yogurt cups, takeout containers, some bottle caps. This type is getting increasingly accepted for recycling municipially, but still varies by location.<br>
-					{% elif plastic == "6" %}
-					6. PS: Styrofoam cups, meat trays, and packing peanuts. It is lightweight and bulky, so the bang for buck as a city is very low. Rarely accepted, often landfilled. <br>
-					{% elif plastic == "7" %}
-					7. Other: As a catch-all category, it makes these plastics hard to identify and process. If it is accepted in your city, you are very lucky.<br>
-					{% else %}
-					 
-					 Additional information: {{ value }}
-					{% endif %}
-					{% if value == 1 %}
-					 <strong>This plastic is recyclable in your city.</strong></p>
-					{% else %}
-					 <strong>This plastic is NOT recyclable in your city.</strong></p>
-					{% endif %}
-				{% endfor %}
-			{% else %}
-				<p><strong>City not found.</strong><p>
-				<p>please be sure that this is a city in utah county</p>
-			{% endif %}
-		{% endif %}
-	</body>
+  <head>
+    <title>Utah County Recycling</title>
+    <meta charset="utf-8">
+
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background-color: #f6f7f8;
+        color: #222;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        background-color: white;
+      }
+
+      h1 {
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin: 0.5rem 0 1rem 0;
+      }
+
+      form {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        align-items: center;
+      }
+
+      input[type="text"] {
+        padding: 0.4rem 0.5rem;
+        font-size: 1rem;
+      }
+
+      button {
+        padding: 0.45rem 0.8rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .plastic-card {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background-color: #fafafa;
+      }
+
+      .recyclable {
+        color: #0a7a2f;
+      }
+
+      .not-recyclable {
+        color: #a00000;
+      }
+
+      .error {
+        color: #a00000;
+        font-weight: bold;
+      }
+
+      .note {
+        font-size: 0.95rem;
+        color: #555;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <form method="POST">
+        <label>
+          City:
+          <input type="text" name="city" required>
+        </label>
+        <button type="submit">Check for recyclability</button>
+      </form>
+			<p class="note">
+				Currently, only some cities from utah county are supported.
+		  </p>
+
+
+      {% if city %}
+        <h1>Recycling Rules for {{ city }}</h1>
+
+        {% if rules %}
+          <p class="note">
+            These are the numbers you'll find on the inside of a recycling symbol on plastic items.
+          </p>
+
+          {% for plastic, value in rules.items() %}
+            <div class="plastic-card">
+              <p>
+                {% if plastic == "1" %}
+                  <strong>1. PETE / PET</strong><br>
+                  Plastic water and soda bottles, and many food containers. This is the most widely recyclable plastic.
+                {% elif plastic == "2" %}
+                  <strong>2. HDPE</strong><br>
+                  Milk jugs, detergent bottles, shampoo bottles. Widely accepted for recycling.
+                {% elif plastic == "3" %}
+                  <strong>3. PVC / V</strong><br>
+                  PVC pipe, cooking oil bottles, vinyl flooring, blister packs. Rarely accepted.
+                {% elif plastic == "4" %}
+                  <strong>4. LDPE</strong><br>
+                  Plastic bags, shrink wrap, some squeeze bottles. Often recyclable via store drop-off.
+                {% elif plastic == "5" %}
+                  <strong>5. PP</strong><br>
+                  Yogurt cups, takeout containers, some bottle caps. Increasingly accepted, varies by city.
+                {% elif plastic == "6" %}
+                  <strong>6. PS</strong><br>
+                  Styrofoam cups, meat trays, packing peanuts. Rarely accepted due to low value.
+                {% elif plastic == "7" %}
+                  <strong>7. Other</strong><br>
+                  Mixed or unknown plastics. Difficult to process; acceptance is uncommon.
+                {% else %}
+                  Additional information: {{ value }}
+                {% endif %}
+              </p>
+
+              {% if value == 1 %}
+                <p class="recyclable"><strong>This plastic is recyclable in your city.</strong></p>
+              {% else %}
+                <p class="not-recyclable"><strong>This plastic is NOT recyclable in your city.</strong></p>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+        {% else %}
+          <p class="error">City not found.</p>
+          <p class="note">Please be sure this is a city in Utah County.</p>
+        {% endif %}
+      {% endif %}
+    </div>
+  </body>
 </html>
 
