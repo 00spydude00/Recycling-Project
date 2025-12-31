@@ -12,11 +12,22 @@
 	"Orem": {
 		"1": 1,
 		"2": 1,
-		"3": 1,
-		"4": 1,
+		"3": 0,
+		"4": 0,
 		"5": 1,
-		"6": 1,
-		"7": 1
+		"6": 0,
+		"7": 0,
+		"8": "Paper, cardboard, milk cartons are recyclable, along with glass at a particular location (1450 550 North, Orem UT 84057). If you have plastic bags and film like grocery bags, you can bring them to walmart and have them recycled."
 		
+	},
+	"Lehi": {
+		"1": 1,
+		"2": 1,
+		"3": 0,
+		"4": 0,
+		"5": 0,
+		"6": 0,
+		"7": 0
+
 	}
 }
