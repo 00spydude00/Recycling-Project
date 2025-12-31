@@ -129,7 +129,7 @@
 
               {% if value == 1 %}
                 <p class="recyclable"><strong>This plastic is recyclable in your city.</strong></p>
-              {% else %}
+              {% elif value == 0 %}
                 <p class="not-recyclable"><strong>This plastic is NOT recyclable in your city.</strong></p>
               {% endif %}
             </div>
