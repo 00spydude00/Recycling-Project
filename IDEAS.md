@@ -6,7 +6,7 @@ The idea here is that I could charge cities small amounts of money for maintenan
 
 Each city could have an account where they can update their own information without first prompting me or making me do research.
 
-I make money from the cities, cities save money from informed residents, residents get a hassle free experience for free with no ads. Win-win-win.
+The project gets support from the cities, cities save money from informed residents, residents get a hassle free experience for free with no ads. Win-win-win.
 
 ##### Mobile app
 

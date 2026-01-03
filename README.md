@@ -8,8 +8,6 @@ The worst part is: every single website is completely unique.
 
 I hope to make this a lot simpler. Do you see a 1 in the middle of a recycling symbol? It is recyclable in these cities.
 
-The scope has been limited to only utah county for my own sanity, but could be expanded later. As I have already explained, it is very hard to find this information.
+The scope has been limited to only utah county for now, but could be expanded later. As I have already explained, it is very hard to find this information.
 
 For now I have omitted a proper DB for simplicity's sake. I mostly just want to get an MVP out asap.
-
-Maybe in the future I could expand this past just the 7 resin types. It seems doable.
